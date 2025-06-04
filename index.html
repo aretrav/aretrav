@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aretrav Tour & Travel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f4f2;
+      color: #3d2c2c;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #800000;
+      color: gold;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header img {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .mobil-info {
+      display: none;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff8f5;
+    }
+
+    .mobil-info img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #800000;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    footer img {
+      width: 40px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="img/logo-big.png" alt="Logo Aretrav Besar" />
+    <h1>Aretrav Tour & Travel</h1>
+    <p>Rental Mobil Wonosobo</p>
+  </header>
+
+  <div class="container">
+    <h2>Pilih Mobil</h2>
+    <select id="mobilSelect">
+      <option value="">-- Pilih Mobil --</option>
+      <option value="avanza">Avanza</option>
+      <option value="calya">Calya</option>
+      <option value="ertiga">Ertiga</option>
+      <option value="hiace">Hiace</option>
+      <option value="livina">Livina</option>
+      <option value="xpander">Xpander</option>
+    </select>
+
+    <div class="mobil-info" id="mobilInfo">
+      <img id="mobilImg" src="" alt="Mobil">
+      <h3 id="mobilNama"></h3>
+      <p id="mobilKelebihan"></p>
+      <p><strong>Harga:</strong></p>
+      <p>12 jam: Rp200.000</p>
+      <p>24 jam: Rp250.000</p>
+    </div>
+
+    <a class="button" href="https://wa.me/6285743565862" target="_blank">Kontak</a>
+  </div>
+
+  <footer>
+    <img src="img/logo-small.png" alt="Logo Kecil Aretrav" />
+    <p>Aretrav Tour & Travel</p>
+    <p>Kedewan 7/2 Sudungdewo, Kertek, Wonosobo</p>
+  </footer>
+
+  <script>
+    const dataMobil = {
+      avanza: {
+        nama: "Avanza",
+        gambar: "img/avanza.png",
+        kelebihan: "Nyaman, irit BBM, cocok untuk keluarga."
+      },
+      calya: {
+        nama: "Calya",
+        gambar: "img/calya.png",
+        kelebihan: "Kompak, cocok untuk perjalanan kota."
+      },
+      ertiga: {
+        nama: "Ertiga",
+        gambar: "img/ertiga.png",
+        kelebihan: "Spacious, fitur lengkap, efisien."
+      },
+      hiace: {
+        nama: "Hiace",
+        gambar: "img/hiace.png",
+        kelebihan: "Kapasitas besar, ideal untuk rombongan."
+      },
+      livina: {
+        nama: "Livina",
+        gambar: "img/livina.png",
+        kelebihan: "Modern, suspensi empuk, nyaman dikendarai."
+      },
+      xpander: {
+        nama: "Xpander",
+        gambar: "img/xpander.png",
+        kelebihan: "Tangguh, mewah, nyaman untuk semua medan."
+      }
+    };
+
+    const selectMobil = document.getElementById("mobilSelect");
+    const mobilInfo = document.getElementById("mobilInfo");
+    const mobilImg = document.getElementById("mobilImg");
+    const mobilNama = document.getElementById("mobilNama");
+    const mobilKelebihan = document.getElementById("mobilKelebihan");
+
+    selectMobil.addEventListener("change", function () {
+      const pilihan = this.value;
+      if (dataMobil[pilihan]) {
+        mobilImg.src = dataMobil[pilihan].gambar;
+        mobilNama.textContent = dataMobil[pilihan].nama;
+        mobilKelebihan.textContent = dataMobil[pilihan].kelebihan;
+        mobilInfo.style.display = "block";
+      } else {
+        mobilInfo.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
